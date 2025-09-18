@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motsi General Trading - Supply, Distribution & Delivery</title>
+    <link rel="icon" href="assets/motsiLogo.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-orange: #f59e0b;
+            --dark-navy: #1e293b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #334155;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(30, 64, 175, 0.95);
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-orange);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+            top: -50%;
+            left: -50%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.3s forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.6s forwards;
+            color: var(--secondary-orange);
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.9s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-orange);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideUp 1s ease 1.2s forwards;
+        }
+
+        .cta-button:hover {
+            background: #d97706;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Compliance Badges */
+        .compliance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .badge.bbbee {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-green);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-orange), var(--accent-green));
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-orange);
+            display: block;
+        }
+
+        /* Compliance Section */
+        .compliance {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .compliance-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .compliance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .compliance-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-item {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .industry-item:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark-navy), var(--primary-blue));
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-orange);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-orange);
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--secondary-orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .compliance-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <!--<li><a href="#compliance">Compliance</a></li>-->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Motsi General Trading</h1>
+            <p class="subtitle">Your Trusted Supply & Distribution Partner</p>
+            <p class="description">
+                Specializing in Supply, Distribution & Delivery services across the Northern Cape. 
+                A 100% Black Female-owned company with B-BBEE Level 1 status, building partnerships that drive business growth and success.
+            </p>
+            <a href="#contact" class="cta-button">Get Started</a>
+            
+            <div class="compliance-badges">
+                <div class="badge bbbee">B-BBEE Level 1 (135% Recognition)</div>
+                <div class="badge">CIPC Registered</div>
+                <div class="badge">SARS Compliant</div>
+                <div class="badge">Department of Labour Compliant</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services fade-in" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Supply Management</h3>
+                    <p>Comprehensive supply chain solutions tailored to meet your business needs with reliable sourcing and inventory management across multiple industries.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚛</div>
+                    <h3>Distribution Services</h3>
+                    <p>Efficient distribution networks ensuring your products reach their destination safely and on time across the Northern Cape region.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Rapid delivery solutions with commitment to timely service, ensuring your goods arrive when and where you need them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Motsi General Trading</h2>
+                    <p>
+                        Established in 2019 and based in Kathu, Northern Cape, Motsi General Trading (Pty) Ltd 
+                        (Registration: 2019/432757/07) is a dynamic company focused on supply, distribution, and delivery services. 
+                    </p>
+                    <p>
+                        Led by Director Mrs. Kgomotsi Lekhobe, we are a 100% Black Female-owned enterprise committed to 
+                        building strong business relationships and providing exceptional service to our clients. As a growing 
+                        company, we understand the challenges businesses face and are dedicated to providing reliable solutions 
+                        that help our partners thrive.
+                    </p>
+                    <p>
+                        Our mission is to become a milestone-driven enterprise, renowned for our reliable supply chain 
+                        solutions and commitment to excellence. While we are a startup with much to accomplish, our 
+                        B-BBEE Level 1 status makes us an attractive procurement partner for larger enterprises.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">2019</span>
+                        <p>Year Established</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <p>Black Female Owned</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Level 1</span>
+                        <p>B-BBEE Status</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Active</span>
+                        <p>Full Compliance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries fade-in">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <h3>Chemist</h3>
+                </div>
+                <div class="industry-item">
+                    <h3>Photography</h3>
+                </div>
+                <div class="industry-item">
+                    <h3>Motor Spares</h3>
+                </div>
+                <div class="industry-item">
+                    <h3>Tyre Dealership</h3>
+                </div>
+                <div class="industry-item">
+                    <h3>General Merchandise</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance fade-in" id="compliance">
+        <div class="container">
+            <h2 class="section-title">Our Compliance & Certifications</h2>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">📋</div>
+                    <h3>CIPC Registration</h3>
+                    <p>Fully registered private company (2019/432757/07) with the Companies and Intellectual Property Commission</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">💰</div>
+                    <h3>Tax Compliance</h3>
+                    <p>In good standing with SARS and maintains full tax compliance</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">👥</div>
+                    <h3>Labour Compliance</h3>
+                    <p>Registered with the Compensation Fund and in good standing with the Department of Labour</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">🏆</div>
+                    <h3>B-BBEE Level 1</h3>
+                    <p>100% Black Female-owned Exempted Micro Enterprise with Level 1 contributor status</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p style="margin-bottom: 2rem;">
+                        Ready to partner with us? Contact Motsi General Trading today for reliable 
+                        supply, distribution, and delivery solutions.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <span class="contact-item-icon">👤</span>
+                        <div>
+                            <strong>Contact Person:</strong><br>
+                            Mrs. Kgomotsi Lekhobe (Director)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📱</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            072 970 7875<br>
+                            010 617 4499
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📍</span>
+                        <div>
+                            <strong>Physical Address:</strong><br>
+                            4902 Sonnebloem Street<br>
+                            Kathu, Northern Cape, 8446
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📮</span>
+                        <div>
+                            <strong>Postal Address:</strong><br>
+                            P.O. Box 1128<br>
+                            Kathu, Northern Cape, 8446
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-item-icon">🏦</span>
+                        <div>
+                            <strong>Banking:</strong><br>
+                            FNB Gold Business Account<br>
+                            Account No: 63000130136
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="How can we assist you?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved. | Reg: 2019/432757/07</p>
+            <p>Accounting Services Provided by Yadah Accounting and Tax Services (Pty) Ltd</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
