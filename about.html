@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Motsi General Trading</title>
-        <link rel="icon" href="assets/motsiLogo.png" type="image/png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,20 +14,17 @@
         }
 
         :root {
-            --primary-blue: #1e40af;
-            --secondary-orange: #f59e0b;
-            --dark-navy: #1e293b;
-            --light-gray: #f8fafc;
-            --white: #ffffff;
-            --text-dark: #334155;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --light-blue: #dbeafe;
+            --primary: #e63946;
+            --secondary: #f9a826;
+            --accent: #2a9d8f;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --text: #333333;
         }
 
         body {
             background-color: #f9fafb;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -40,10 +36,13 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -55,7 +54,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--secondary-orange);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         nav ul {
@@ -72,15 +74,22 @@
         }
 
         nav a:hover {
-            color: var(--secondary-orange);
+            color: var(--secondary);
         }
 
         /* Hero Section */
         .about-hero {
-            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 41, 59, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .about-hero h1 {
@@ -90,8 +99,7 @@
 
         .about-hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
         }
 
         /* Content Sections */
@@ -102,71 +110,70 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 3rem;
         }
 
-        .section-content {
+        /* Story Section */
+        .story-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .section-text {
+        .story-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.8;
         }
 
-        .section-text h2 {
-            font-size: 2rem;
-            color: var(--dark-navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        /* Leadership Section */
-        .leadership {
-            background-color: var(--light-blue);
+        .story-image {
             border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            background: var(--light);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mv-card {
+            background: white;
             padding: 3rem;
-            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
         }
 
-        .leader-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
+        .mv-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
-        .leader-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-orange));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .leader-info h3 {
+        .mv-card h3 {
             font-size: 1.8rem;
-            color: var(--dark-navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .leader-title {
-            color: var(--primary-blue);
-            font-weight: 600;
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
@@ -175,15 +182,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .value-card {
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
             transition: transform 0.3s ease;
         }
 
@@ -192,43 +198,94 @@
         }
 
         .value-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            color: var(--secondary);
             margin-bottom: 1.5rem;
-            color: var(--primary-blue);
         }
 
         .value-card h3 {
             font-size: 1.5rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
-        /* Compliance Section */
-        .compliance-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin: 3rem 0;
+        /* Team Section */
+        .team {
+            background: var(--light);
         }
 
-        .badge {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
+        .team-content {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            min-width: 200px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .badge-icon {
+        .team-content h2 {
             font-size: 2.5rem;
-            color: var(--accent-green);
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .badge h4 {
-            color: var(--dark-navy);
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
@@ -239,65 +296,71 @@
             margin: 4rem auto;
         }
 
-        .timeline::after {
+        .timeline::before {
             content: '';
             position: absolute;
-            width: 6px;
-            background-color: var(--primary-blue);
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -3px;
+            width: 4px;
+            background: var(--primary);
+            transform: translateX(-50%);
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
         }
 
-        .timeline-item::after {
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .timeline-content::after {
             content: '';
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary-orange);
+            background: var(--primary);
             border-radius: 50%;
-            top: 15px;
-            right: -13px;
-            z-index: 1;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        .left {
-            left: 0;
-            text-align: right;
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -50px;
         }
 
-        .right {
-            left: 50%;
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -50px;
         }
 
-        .right::after {
-            left: -13px;
-        }
-
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary-blue);
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -310,9 +373,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
-            background: var(--secondary-orange);
+            background: var(--secondary);
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -323,77 +386,96 @@
             margin-top: 1.5rem;
         }
 
-        .cta-button:hover {
-            background: #d97706;
+        .btn:hover {
+            background: #e59400;
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--dark-navy);
+            background: var(--dark);
             color: white;
             padding: 3rem 0;
-            text-align: center;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            text-align: left;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            color: var(--secondary-orange);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
         }
 
-        .footer-section p {
-            margin-bottom: 0.5rem;
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
         }
 
         .copyright {
+            text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .section-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .left, .right {
-                left: 0;
-                text-align: left;
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             nav ul {
                 flex-direction: column;
                 gap: 1rem;
+                text-align: center;
             }
             
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after {
+                left: -50px;
+                right: auto;
             }
         }
     </style>
@@ -402,13 +484,16 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
+            <div class="logo">
+                <i class="fas fa-utensils"></i> Motsi General Trading
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" style="color: #f59e0b;">About</a></li>
+                    <li><a href="about.html" style="color: #f9a826;">About</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <!--<li><a href="products.html">Products</a></li>-->
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -416,167 +501,185 @@
 
     <!-- Hero Section -->
     <section class="about-hero">
-        <div class="container">
-            <h1>About Motsi General Trading</h1>
-            <p>Building the future of supply chain solutions with integrity, excellence, and a commitment to empowerment</p>
+        <div class="container about-hero-content">
+            <h1>Our Story</h1>
+            <p>Learn about Motsi General Trading's journey, values, and commitment to providing quality food products and services</p>
         </div>
     </section>
 
-    <!-- Company Story -->
+    <!-- Story Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
-            <div class="section-content">
-                <div class="section-text">
-                    <h2>From Vision to Reality</h2>
-                    <p>Established in <span class="highlight">August 2019</span>, Motsi General Trading began as a vision to create a reliable, ethical, and empowered supply chain solution provider in the Northern Cape region. Founded by Mrs. Kgomotsi Lekhobe, our company was built on the principles of integrity, quality service, and community development.</p>
-                    <p>Though we are a relatively new player in the industry, our commitment to excellence and our unique status as a <span class="highlight">100% Black Female-owned enterprise</span> with B-BBEE Level 1 certification positions us as an ideal partner for businesses looking to strengthen their supply chains while supporting economic transformation.</p>
-                    <p>Our journey is just beginning, and we are excited to build our legacy of success through dedication, hard work, and unwavering commitment to our clients' needs.</p>
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>From Humble Beginnings</h2>
+                    <p>Motsi General Trading was established in 2019 with a vision to provide quality food products and reliable distribution services to the communities of the Northern Cape. What started as a small family operation has grown into a trusted supplier for restaurants, retailers, and institutions throughout the region.</p>
+                    <p>Founded by Mrs. Kgomotsi Lekhobe, our company was built on the principles of integrity, quality, and community service. We understand the importance of fresh, nutritious food and work tirelessly to ensure our clients receive the best products available.</p>
+                    <p>As a 100% Black Female-owned enterprise, we are proud to contribute to economic empowerment while serving the community with excellence. Our B-BBEE Level 1 status reflects our commitment to transformation and creating opportunities.</p>
                 </div>
-                <div style="background: linear-gradient(45deg, #1e40af, #f59e0b); height: 300px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
-                    Building Success Through Partnership
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Our Leadership</h2>
-            <div class="leadership">
-                <div class="leader-profile">
-                    <div class="leader-image">
-                        <i>KL</i>
-                    </div>
-                    <div class="leader-info">
-                        <h3>Mrs. Kgomotsi Lekhobe</h3>
-                        <div class="leader-title">Founder & Director</div>
-                        <p>With a vision to create opportunities and drive economic empowerment, Mrs. Lekhobe established Motsi General Trading to provide exceptional supply chain services while championing transformation in the business community.</p>
-                    </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Motsi General Trading">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Mission & Vision -->
-    <section class="section" style="background-color: #f1f5f9;">
+    <section class="section mission-vision">
         <div class="container">
             <h2 class="section-title">Our Mission & Vision</h2>
-            <div class="section-content">
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">🎯</div>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h3>Our Mission</h3>
-                    <p>To provide reliable, efficient, and comprehensive supply chain solutions that empower businesses to thrive while maintaining the highest standards of service quality and ethical business practices.</p>
+                    <p>To provide high-quality food products and reliable distribution services that nourish communities while maintaining the highest standards of freshness, safety, and customer satisfaction.</p>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; color: #1e40af; margin-bottom: 1rem;">🔭</div>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
                     <h3>Our Vision</h3>
-                    <p>To become a leading supply chain partner in the Northern Cape region, recognized for excellence, reliability, and our contribution to economic transformation and community development.</p>
+                    <p>To become the leading food supplier in the Northern Cape, recognized for our quality products, exceptional service, and positive impact on the community and local economy.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values -->
+    <!-- Values Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Our Values</h2>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">✓</div>
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>We are committed to providing only the highest quality food products, ensuring freshness and nutritional value in everything we supply.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
                     <h3>Integrity</h3>
-                    <p>We conduct all business with honesty, transparency, and ethical practices.</p>
+                    <p>We conduct our business with honesty, transparency, and ethical practices, building trust with our clients and partners.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">⚡</div>
-                    <h3>Excellence</h3>
-                    <p>We strive for the highest quality in all our services and interactions.</p>
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>We are dedicated to supporting our local community through job creation, economic empowerment, and providing access to quality food.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>Partnership</h3>
-                    <p>We build long-term relationships based on mutual trust and benefit.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🌱</div>
-                    <h3>Empowerment</h3>
-                    <p>We are committed to economic transformation and community development.</p>
+                    <div class="value-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>We pride ourselves on consistent, dependable service, ensuring our clients receive their orders on time, every time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Compliance -->
-    <section class="section" style="background-color: #eff6ff;">
+    <!-- Team Section -->
+    <section class="section team">
         <div class="container">
-            <h2 class="section-title">Our Compliance & Certifications</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">Motsi General Trading maintains full compliance with all regulatory requirements, ensuring our partners can work with us confidently.</p>
-            
-            <div class="compliance-badges">
-                <div class="badge">
-                    <div class="badge-icon">📋</div>
-                    <h4>CIPC Registered</h4>
-                    <p>2019/432757/07</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">💰</div>
-                    <h4>Tax Compliant</h4>
-                    <p>SARS Compliance</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">👥</div>
-                    <h4>Labour Compliant</h4>
-                    <p>Compensation Fund</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">🏆</div>
-                    <h4>B-BBEE Level 1</h4>
-                    <p>135% Recognition</p>
+            <div class="team-content">
+                <h2>Our Leadership</h2>
+                <p>Behind Motsi General Trading is a dedicated team committed to excellence in food supply and distribution.</p>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mrs. Kgomotsi Lekhobe</h3>
+                        <div class="member-role">Founder & Director</div>
+                        <p>With a passion for quality food and community development, Mrs. Lekhobe established Motsi General Trading to provide reliable food supply services while creating economic opportunities in the Northern Cape region.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline -->
+    <!-- Certifications Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>B-BBEE Level 1</h3>
+                    <p>135% procurement recognition</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>CIPC Registered</h3>
+                    <p>Registration: 2019/432757/07</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Tax Compliant</h3>
+                    <p>In good standing with SARS</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compensation Fund</h3>
+                    <p>Registered with Department of Labour</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Our Journey</h2>
             <div class="timeline">
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>August 2019</h3>
-                        <p>Company founded and registered with CIPC</p>
+                        <div class="timeline-year">2019</div>
+                        <h3>Company Founded</h3>
+                        <p>Motsi General Trading was established and registered with CIPC</p>
                     </div>
                 </div>
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>September 2019</h3>
-                        <p>Received Tax Compliance Certificate from SARS</p>
+                        <div class="timeline-year">2020</div>
+                        <h3>Expanded Operations</h3>
+                        <p>Grew our client base and product offerings despite challenging conditions</p>
                     </div>
                 </div>
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2020</h3>
-                        <p>Registered with Compensation Fund</p>
+                        <div class="timeline-year">2021</div>
+                        <h3>B-BBEE Certification</h3>
+                        <p>Achieved Level 1 B-BBEE status</p>
                     </div>
                 </div>
-                <div class="timeline-item right">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2021</h3>
-                        <p>B-BBEE Level 1 Certification Achieved</p>
+                        <div class="timeline-year">2022</div>
+                        <h3>New Facilities</h3>
+                        <p>Expanded our storage and distribution capabilities</p>
                     </div>
                 </div>
-                <div class="timeline-item left">
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2022</h3>
-                        <p>Opened FNB Business Banking Account</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2023 & Beyond</h3>
-                        <p>Expanding our services and building our success stories</p>
+                        <div class="timeline-year">2023</div>
+                        <h3>Community Initiatives</h3>
+                        <p>Launched programs to support local food security</p>
                     </div>
                 </div>
             </div>
@@ -586,9 +689,9 @@
     <!-- CTA Section -->
     <div class="container">
         <div class="cta-section">
-            <h2>Ready to Partner With Us?</h2>
-            <p>Discover how Motsi General Trading can enhance your supply chain with our reliable services and B-BBEE Level 1 advantages.</p>
-            <a href="contact.html" class="cta-button">Get in Touch</a>
+            <h2>Partner With Us</h2>
+            <p>Join the growing list of businesses that trust Motsi General Trading for their food supply needs</p>
+            <a href="contact.html" class="btn">Get In Touch</a>
         </div>
     </div>
 
@@ -597,23 +700,31 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
-                    <p>Your trusted partner for supply, distribution, and delivery solutions.</p>
-                    <p>B-BBEE Level 1 Contributor</p>
+                    <h3>Motsi General Trading</h3>
+                    <p>Your trusted partner for quality food supply and distribution services in the Northern Cape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579306432481" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="services.html">Services</a></p>
+                    <!--<p><a href="products.html">Products</a></p>-->
+                    <p><a href="#contact">Contact</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>4902 Sonnebloem Street, Kathu, 8446</p>
-                    <p>072 970 7875 | 010 617 4499</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Business Details</h3>
-                    <p>Registration: 2019/432757/07</p>
-                    <p>Accounting: Yadah Accounting & Tax Services</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 4902 Sonnebloem Street, Kathu</p>
+                    <p><i class="fas fa-phone"></i> 072 970 7875</p>
+                    <p><i class="fas fa-envelope"></i> info@motsigt.co.za</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved.</p>
+                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved. | Reg: 2019/432757/07</p>
             </div>
         </div>
     </footer>

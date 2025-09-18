@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Motsi General Trading</title>
-        <link rel="icon" href="assets/motsiLogo.png" type="image/png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,20 +14,17 @@
         }
 
         :root {
-            --primary-blue: #1e40af;
-            --secondary-orange: #f59e0b;
-            --dark-navy: #1e293b;
-            --light-gray: #f8fafc;
-            --white: #ffffff;
-            --text-dark: #334155;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --light-blue: #dbeafe;
+            --primary: #e63946;
+            --secondary: #f9a826;
+            --accent: #2a9d8f;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --text: #333333;
         }
 
         body {
             background-color: #f9fafb;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -40,10 +36,13 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -55,7 +54,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--secondary-orange);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         nav ul {
@@ -72,15 +74,22 @@
         }
 
         nav a:hover {
-            color: var(--secondary-orange);
+            color: var(--secondary);
         }
 
         /* Hero Section */
         .services-hero {
-            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 41, 59, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
+        }
+
+        .services-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .services-hero h1 {
@@ -90,8 +99,7 @@
 
         .services-hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
         }
 
         /* Content Sections */
@@ -102,14 +110,14 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 3rem;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: var(--text-dark);
+            color: var(--text);
             max-width: 800px;
             margin: 0 auto 4rem auto;
         }
@@ -135,7 +143,7 @@
         }
 
         .service-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 2rem;
             text-align: center;
@@ -169,7 +177,7 @@
 
         .service-features li:before {
             content: "✓";
-            color: var(--accent-green);
+            color: var(--accent);
             font-weight: bold;
             margin-right: 0.5rem;
         }
@@ -178,46 +186,9 @@
             border-bottom: none;
         }
 
-        /* Industries Section */
-        .industries {
-            background-color: var(--light-blue);
-            border-radius: 15px;
-            padding: 3rem;
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .industry-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .industry-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .industry-icon {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
         /* Process Section */
         .process {
-            background-color: white;
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            background: var(--light);
         }
 
         .process-steps {
@@ -234,7 +205,8 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--light-gray);
+            background: var(--primary);
+            opacity: 0.2;
             z-index: 1;
         }
 
@@ -249,7 +221,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: var(--primary-blue);
+            background: var(--primary);
             color: white;
             display: flex;
             align-items: center;
@@ -261,8 +233,47 @@
 
         .step-title {
             font-size: 1.2rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 0.5rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .industry-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .industry-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .industry-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .industry-item:hover .industry-icon {
+            color: white;
         }
 
         /* Benefits Section */
@@ -270,7 +281,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .benefit-card {
@@ -289,18 +299,18 @@
 
         .benefit-icon {
             font-size: 2.5rem;
-            color: var(--secondary-orange);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
         }
 
         .benefit-card h3 {
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -313,9 +323,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
-            background: var(--secondary-orange);
+            background: var(--secondary);
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -326,45 +336,98 @@
             margin-top: 1.5rem;
         }
 
-        .cta-button:hover {
-            background: #d97706;
+        .btn:hover {
+            background: #e59400;
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
 
+        /* FAQ Section */
+        .faq-section {
+            background: var(--light);
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
         /* Footer */
         footer {
-            background: var(--dark-navy);
+            background: var(--dark);
             color: white;
             padding: 3rem 0;
-            text-align: center;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            text-align: left;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            color: var(--secondary-orange);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
         }
 
-        .footer-section p {
-            margin-bottom: 0.5rem;
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
         }
 
         .copyright {
+            text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
             .process-steps {
                 flex-direction: column;
                 gap: 2rem;
@@ -373,20 +436,6 @@
             .process-steps::before {
                 display: none;
             }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .services-hero h1 {
-                font-size: 2.5rem;
-            }
         }
     </style>
 </head>
@@ -394,13 +443,16 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
+            <div class="logo">
+                <i class="fas fa-utensils"></i> Motsi General Trading
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html" style="color: #f59e0b;">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="services.html" style="color: #f9a826;">Services</a></li>
+                    <!--<li><a href="products.html">Products</a></li>-->
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -408,9 +460,9 @@
 
     <!-- Hero Section -->
     <section class="services-hero">
-        <div class="container">
-            <h1>Our Services</h1>
-            <p>Comprehensive supply, distribution, and delivery solutions tailored to meet your business needs</p>
+        <div class="container services-hero-content">
+            <h1>Our Food Services</h1>
+            <p>Comprehensive food supply and distribution solutions tailored to meet your business needs</p>
         </div>
     </section>
 
@@ -418,56 +470,107 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">What We Offer</h2>
-            <p class="section-subtitle">Motsi General Trading provides end-to-end supply chain solutions with a focus on reliability, efficiency, and customer satisfaction.</p>
+            <p class="section-subtitle">Motsi General Trading provides end-to-end food supply chain solutions with a focus on quality, freshness, and reliability.</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-header">
+                        <div class="service-icon">🥦</div>
+                        <h3 class="service-title">Fresh Produce Supply</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>We provide the freshest fruits, vegetables, and herbs sourced from trusted local farmers and suppliers.</p>
+                        <ul class="service-features">
+                            <li>Daily harvested fresh produce</li>
+                            <li>Cold chain management</li>
+                            <li>Quality inspection and sorting</li>
+                            <li>Organic options available</li>
+                            <li>Custom packaging solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🍗</div>
+                        <h3 class="service-title">Meat & Poultry Supply</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Premium quality meat and poultry products with strict adherence to food safety standards.</p>
+                        <ul class="service-features">
+                            <li>Fresh and frozen options</li>
+                            <li>Certified halal products available</li>
+                            <li>Portion cutting and processing</li>
+                            <li>Traceability from farm to table</li>
+                            <li>Custom cuts upon request</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🥛</div>
+                        <h3 class="service-title">Dairy Products Distribution</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Fresh dairy products delivered with care to maintain quality and extend shelf life.</p>
+                        <ul class="service-features">
+                            <li>Milk, cheese, yogurt, and butter</li>
+                            <li>Temperature-controlled transport</li>
+                            <li>Regular and lactose-free options</li>
+                            <li>Local and imported selections</li>
+                            <li>First-in-first-out inventory management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🍞</div>
+                        <h3 class="service-title">Bakery & Pantry Items</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Daily fresh bakery products and essential pantry staples for your business.</p>
+                        <ul class="service-features">
+                            <li>Fresh bread and pastries</li>
+                            <li>Grains, flour, and baking supplies</li>
+                            <li>Canned goods and preserves</li>
+                            <li>Oils, spices, and condiments</li>
+                            <li>Regular delivery schedules</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🚚</div>
+                        <h3 class="service-title">Food Delivery Services</h3>
+                    </div>
+                    <div class="service-content">
+                        <p>Reliable and timely delivery of food products to restaurants, retailers, and institutions.</p>
+                        <ul class="service-features">
+                            <li>Refrigerated and ambient vehicles</li>
+                            <li>Flexible delivery schedules</li>
+                            <li>Emergency order service</li>
+                            <li>Real-time tracking available</li>
+                            <li>Professional handling procedures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
                         <div class="service-icon">📦</div>
-                        <h3 class="service-title">Supply Management</h3>
+                        <h3 class="service-title">Bulk Supply Solutions</h3>
                     </div>
                     <div class="service-content">
-                        <p>We provide comprehensive supply chain solutions tailored to meet your specific business requirements.</p>
+                        <p>Cost-effective bulk purchasing options for high-volume food service operations.</p>
                         <ul class="service-features">
-                            <li>Reliable sourcing of products</li>
-                            <li>Inventory management solutions</li>
-                            <li>Quality assurance processes</li>
-                            <li>Supplier relationship management</li>
-                            <li>Customized supply solutions</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">🚛</div>
-                        <h3 class="service-title">Distribution Services</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>Our efficient distribution networks ensure your products reach their destination safely and on time.</p>
-                        <ul class="service-features">
-                            <li>Regional distribution coverage</li>
-                            <li>Efficient logistics planning</li>
-                            <li>Secure transportation</li>
-                            <li>Route optimization</li>
-                            <li>Multi-point distribution</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">⚡</div>
-                        <h3 class="service-title">Fast Delivery</h3>
-                    </div>
-                    <div class="service-content">
-                        <p>We offer rapid delivery solutions with commitment to timely service across the Northern Cape region.</p>
-                        <ul class="service-features">
-                            <li>Timely delivery guarantees</li>
-                            <li>Local area expertise</li>
-                            <li>Flexible delivery options</li>
-                            <li>Secure handling procedures</li>
-                            <li>After-hours delivery available</li>
+                            <li>Volume discount pricing</li>
+                            <li>Custom packaging for bulk items</li>
+                            <li>Direct sourcing from producers</li>
+                            <li>Storage solutions available</li>
+                            <li>Regular supply contracts</li>
                         </ul>
                     </div>
                 </div>
@@ -475,82 +578,85 @@
         </div>
     </section>
 
-    <!-- Industries Served -->
+    <!-- Process Section -->
+    <section class="section process">
+        <div class="container">
+            <h2 class="section-title">Our Service Process</h2>
+            <p class="section-subtitle">We follow a meticulous process to ensure the highest quality and freshness in every delivery</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sourcing</h3>
+                    <p>We carefully select suppliers who meet our quality standards</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Inspection</h3>
+                    <p>Every product undergoes rigorous quality checks</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Storage</h3>
+                    <p>Proper temperature-controlled storage maintains freshness</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Delivery</h3>
+                    <p>Timely delivery with maintained cold chain integrity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Industries We Serve</h2>
-            <p class="section-subtitle">Our services cater to a diverse range of industries with specialized solutions for each sector.</p>
+            <p class="section-subtitle">We provide food supply solutions to various sectors across the Northern Cape region</p>
             
             <div class="industries">
                 <div class="industries-grid">
                     <div class="industry-item">
-                        <div class="industry-icon">🧪</div>
-                        <h3>Chemist</h3>
-                        <p>Supply of chemical products and laboratory equipment</p>
+                        <div class="industry-icon">🏨</div>
+                        <h3>Hotels & Resorts</h3>
+                        <p>Consistent supply for hospitality operations</p>
                     </div>
                     <div class="industry-item">
-                        <div class="industry-icon">📸</div>
-                        <h3>Photography</h3>
-                        <p>Distribution of photography equipment and supplies</p>
+                        <div class="industry-icon">🍽️</div>
+                        <h3>Restaurants</h3>
+                        <p>Fresh ingredients for culinary excellence</p>
                     </div>
                     <div class="industry-item">
-                        <div class="industry-icon">🔧</div>
-                        <h3>Motor Spares</h3>
-                        <p>Automotive parts supply and distribution</p>
+                        <div class="industry-icon">🛒</div>
+                        <h3>Retail Stores</h3>
+                        <p>Stock for supermarkets and grocery stores</p>
                     </div>
                     <div class="industry-item">
-                        <div class="industry-icon">🚗</div>
-                        <h3>Tyre Dealership</h3>
-                        <p>Tyre supply, distribution, and delivery services</p>
+                        <div class="industry-icon">🎓</div>
+                        <h3>Schools & Institutions</h3>
+                        <p>Nutritious food for educational facilities</p>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-icon">🏥</div>
+                        <h3>Hospitals</h3>
+                        <p>Special dietary requirements fulfilled</p>
                     </div>
                     <div class="industry-item">
                         <div class="industry-icon">🏢</div>
-                        <h3>General Merchandise</h3>
-                        <p>Broad range of products for retail and wholesale</p>
+                        <h3>Corporate Cafeterias</h3>
+                        <p>Bulk supply for workplace dining</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Process -->
+    <!-- Benefits Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Our Process</h2>
-            <p class="section-subtitle">We follow a structured approach to ensure seamless service delivery from start to finish.</p>
-            
-            <div class="process">
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Consultation</h3>
-                        <p>We discuss your specific requirements and challenges</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Planning</h3>
-                        <p>We develop a customized solution for your needs</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Implementation</h3>
-                        <p>We execute the plan with precision and care</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3 class="step-title">Delivery</h3>
-                        <p>We ensure timely completion and follow-up</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits -->
-    <section class="section" style="background-color: #f1f5f9;">
-        <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <p class="section-subtitle">Partnering with Motsi General Trading offers distinct advantages for your business.</p>
+            <h2 class="section-title">Why Choose Our Services</h2>
+            <p class="section-subtitle">Partnering with Motsi General Trading offers distinct advantages for your business</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -560,18 +666,75 @@
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">⚡</div>
-                    <h3>Reliable Service</h3>
-                    <p>Consistent and dependable service delivery you can count on</p>
+                    <h3>Reliable Supply</h3>
+                    <p>Consistent and dependable service you can count on</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Quality Guarantee</h3>
+                    <p>Rigorous quality control ensures only the best products</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Cost-effective solutions without compromising on quality</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Timely Delivery</h3>
+                    <p>Efficient logistics ensuring on-time deliveries</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🤝</div>
-                    <h3>Personal Approach</h3>
-                    <p>Customized solutions tailored to your specific business needs</p>
+                    <h3>Personalized Service</h3>
+                    <p>Customized solutions tailored to your specific needs</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌱</div>
-                    <h3>Growing Partnership</h3>
-                    <p>We grow with you, adapting to your evolving requirements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What areas do you deliver to?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We primarily serve the Northern Cape region, with a focus on Kathu and surrounding areas. We can arrange delivery to other regions based on order volume and requirements.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What are your minimum order requirements?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Minimum order requirements vary by product type. For fresh produce, we have a minimum order value of R500. For bulk and dry goods, minimums may be higher. Contact us for specific requirements based on your needs.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I place an order?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Orders can be placed via phone, email, or through our website. We recommend placing orders at least 24 hours in advance for fresh products. Regular customers can set up standing orders for automated delivery.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer organic products?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, we offer a selection of organic produce and products. Availability may vary by season. Please contact us for current organic offerings and pricing.
                 </div>
             </div>
         </div>
@@ -580,9 +743,9 @@
     <!-- CTA Section -->
     <div class="container">
         <div class="cta-section">
-            <h2>Ready to Streamline Your Supply Chain?</h2>
+            <h2>Ready to Enhance Your Food Supply Chain?</h2>
             <p>Contact us today to discuss how our services can benefit your business and contribute to your B-BBEE goals.</p>
-            <a href="contact.html" class="cta-button">Get a Quote</a>
+            <a href="contact.html" class="btn">Get a Quote</a>
         </div>
     </div>
 
@@ -591,25 +754,69 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
-                    <p>Your trusted partner for supply, distribution, and delivery solutions.</p>
-                    <p>B-BBEE Level 1 Contributor</p>
+                    <h3>Motsi General Trading</h3>
+                    <p>Your trusted partner for quality food supply and distribution services in the Northern Cape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579306432481" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="services.html">Services</a></p>
+                    <p><a href="products.html">Products</a></p>
+                    <p><a href="contact.html">Contact</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>4902 Sonnebloem Street, Kathu, 8446</p>
-                    <p>072 970 7875 | 010 617 4499</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Business Details</h3>
-                    <p>Registration: 2019/432757/07</p>
-                    <p>Accounting: Yadah Accounting & Tax Services</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 4902 Sonnebloem Street, Kathu</p>
+                    <p><i class="fas fa-phone"></i> 072 970 7875</p>
+                    <p><i class="fas fa-envelope"></i> info@motsigt.co.za</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved.</p>
+                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved. | Reg: 2019/432757/07</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                document.querySelectorAll('.faq-question span').forEach(span => {
+                    span.textContent = '+';
+                });
+                
+                // Open clicked answer if it was closed
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    question.querySelector('span').textContent = '-';
+                }
+            });
+        });
+
+        // Initialize FAQ to have first question open
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstAnswer = document.querySelector('.faq-answer');
+            const firstSpan = document.querySelector('.faq-question span');
+            if (firstAnswer && firstSpan) {
+                firstAnswer.style.display = 'block';
+                firstSpan.textContent = '-';
+            }
+        });
+    </script>
 </body>
 </html>
