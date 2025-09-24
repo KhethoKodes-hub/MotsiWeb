@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Motsi General Trading</title>
-        <link rel="icon" href="assets/motsiLogo.png" type="image/png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,20 +14,17 @@
         }
 
         :root {
-            --primary-blue: #1e40af;
-            --secondary-orange: #f59e0b;
-            --dark-navy: #1e293b;
-            --light-gray: #f8fafc;
-            --white: #ffffff;
-            --text-dark: #334155;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --light-blue: #dbeafe;
+            --primary: #e63946;
+            --secondary: #f9a826;
+            --accent: #2a9d8f;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --text: #333333;
         }
 
         body {
             background-color: #f9fafb;
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -40,10 +36,13 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 1rem 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -55,7 +54,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--secondary-orange);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         nav ul {
@@ -72,15 +74,22 @@
         }
 
         nav a:hover {
-            color: var(--secondary-orange);
+            color: var(--secondary);
         }
 
         /* Hero Section */
         .contact-hero {
-            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 41, 59, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/herocontact.png');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 6rem 0;
+            padding: 8rem 0;
             text-align: center;
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .contact-hero h1 {
@@ -90,8 +99,7 @@
 
         .contact-hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
         }
 
         /* Content Sections */
@@ -102,14 +110,14 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 3rem;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: var(--text-dark);
+            color: var(--text);
             max-width: 800px;
             margin: 0 auto 4rem auto;
         }
@@ -122,14 +130,14 @@
         }
 
         .contact-info {
-            background: var(--white);
+            background: white;
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .contact-info h2 {
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 2rem;
             font-size: 2rem;
         }
@@ -146,24 +154,24 @@
 
         .contact-icon {
             font-size: 1.5rem;
-            color: var(--primary-blue);
+            color: var(--primary);
             margin-right: 1rem;
             min-width: 30px;
         }
 
         .contact-text h3 {
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
         .business-details {
-            background: var(--light-blue);
+            background: var(--light);
             padding: 2rem;
             border-radius: 10px;
         }
 
         .business-details h3 {
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
@@ -179,14 +187,14 @@
 
         /* Contact Form */
         .contact-form {
-            background: var(--white);
+            background: white;
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .contact-form h2 {
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 2rem;
             font-size: 2rem;
         }
@@ -199,7 +207,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--dark-navy);
+            color: var(--dark);
         }
 
         .form-group input,
@@ -216,9 +224,9 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: var(--primary-blue);
+            border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
         }
 
         .form-group textarea {
@@ -227,7 +235,7 @@
         }
 
         .submit-btn {
-            background: var(--secondary-orange);
+            background: var(--secondary);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -240,14 +248,14 @@
         }
 
         .submit-btn:hover {
-            background: #d97706;
+            background: #e59400;
             transform: translateY(-2px);
         }
 
         /* Map Section */
         .map-section {
             padding: 3rem 0;
-            background: var(--light-gray);
+            background: var(--light);
         }
 
         .map-container {
@@ -263,7 +271,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--dark-navy);
+            color: var(--dark);
             font-size: 1.2rem;
             text-align: center;
             padding: 2rem;
@@ -271,19 +279,21 @@
 
         /* FAQ Section */
         .faq-section {
-            background: var(--white);
+            background: var(--light);
             padding: 5rem 0;
         }
 
         .faq-item {
             margin-bottom: 2rem;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .faq-question {
             font-size: 1.3rem;
-            color: var(--dark-navy);
+            color: var(--dark);
             margin-bottom: 1rem;
             cursor: pointer;
             display: flex;
@@ -292,13 +302,38 @@
         }
 
         .faq-answer {
-            color: var(--text-dark);
+            color: var(--text);
             line-height: 1.7;
+        }
+
+        /* Business Hours */
+        .hours-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .hours-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .hours-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));
+            background: linear-gradient(135deg, var(--primary), #c1121f);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -311,9 +346,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
-            background: var(--secondary-orange);
+            background: var(--secondary);
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -324,62 +359,73 @@
             margin-top: 1.5rem;
         }
 
-        .cta-button:hover {
-            background: #d97706;
+        .btn:hover {
+            background: #e59400;
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--dark-navy);
+            background: var(--dark);
             color: white;
             padding: 3rem 0;
-            text-align: center;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            text-align: left;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            color: var(--secondary-orange);
+            color: var(--secondary);
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
         }
 
-        .footer-section p {
-            margin-bottom: 0.5rem;
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
         }
 
         .copyright {
+            text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
             .header-content {
                 flex-direction: column;
                 gap: 1rem;
             }
             
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
             .contact-hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .detail-item {
@@ -397,13 +443,15 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
+            <div class="logo">
+                <a ><img src="assets/MotsigenLogo.png" height="80" width="80"></a> 
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html" style="color: #f59e0b;">Contact</a></li>
+                    <li><a href="contact.html" style="color: #f9a826;">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -411,9 +459,9 @@
 
     <!-- Hero Section -->
     <section class="contact-hero">
-        <div class="container">
+        <div class="container contact-hero-content">
             <h1>Get In Touch</h1>
-            <p>Reach out to us for reliable supply, distribution, and delivery solutions. We're here to help your business thrive.</p>
+            <p>We're here to help with all your food supply needs. Contact us today for quality products and reliable service.</p>
         </div>
     </section>
 
@@ -421,7 +469,7 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">We're ready to assist you with all your supply chain needs. Choose your preferred method to get in touch.</p>
+            <p class="section-subtitle">Reach out to us through any of the following methods. We're ready to assist you with your food supply requirements.</p>
             
             <div class="contact-content">
                 <div class="contact-info">
@@ -429,7 +477,9 @@
                     
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div class="contact-text">
                                 <h3>Address</h3>
                                 <p>4902 Sonnebloem Street<br>Kathu, Northern Cape, 8446</p>
@@ -437,7 +487,9 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div class="contact-text">
                                 <h3>Phone</h3>
                                 <p>072 970 7875<br>010 617 4499</p>
@@ -445,15 +497,19 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div class="contact-text">
                                 <h3>Email</h3>
-                                <p>info@motsigt.co.za<br>accounts@motsigt.co.za</p>
+                                <p>info@motsigt.co.za<br>orders@motsigt.co.za</p>
                             </div>
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
                             <div class="contact-text">
                                 <h3>Business Hours</h3>
                                 <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
@@ -494,12 +550,12 @@
                     <h2>Send Us a Message</h2>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
+                            <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         
@@ -517,16 +573,19 @@
                             <label for="service">Service Interested In</label>
                             <select id="service" name="service">
                                 <option value="">Select a service</option>
-                                <option value="supply">Supply Management</option>
-                                <option value="distribution">Distribution Services</option>
-                                <option value="delivery">Fast Delivery</option>
+                                <option value="fresh-produce">Fresh Produce Supply</option>
+                                <option value="meat-poultry">Meat & Poultry Supply</option>
+                                <option value="dairy">Dairy Products Distribution</option>
+                                <option value="bakery">Bakery & Pantry Items</option>
+                                <option value="delivery">Food Delivery Services</option>
+                                <option value="bulk">Bulk Supply Solutions</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your food supply needs..." required></textarea>
                         </div>
                         
                         <button type="submit" class="submit-btn">Send Message</button>
@@ -544,8 +603,39 @@
                 <div class="map-placeholder">
                     <div>
                         <h3>Kathu, Northern Cape</h3>
-                        <p>Map would be displayed here with exact location</p>
+                        <p>We are located in the heart of Kathu, serving the entire Northern Cape region</p>
                         <p>4902 Sonnebloem Street, Kathu, 8446</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Business Hours</h2>
+            <div class="hours-section">
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <h3>Monday - Friday</h3>
+                        <p>8:00 AM - 5:00 PM</p>
+                        <p><small>Order cutoff: 3:00 PM for next day delivery</small></p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Saturday</h3>
+                        <p>9:00 AM - 1:00 PM</p>
+                        <p><small>Limited delivery services</small></p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Sunday</h3>
+                        <p>Closed</p>
+                        <p><small>Emergency orders by arrangement</small></p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Public Holidays</h3>
+                        <p>Closed</p>
+                        <p><small>Advance orders accepted</small></p>
                     </div>
                 </div>
             </div>
@@ -559,41 +649,41 @@
             
             <div class="faq-item">
                 <div class="faq-question">
-                    What areas do you serve?
+                    How quickly can you respond to inquiries?
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    We primarily serve the Northern Cape region, with a focus on Kathu and surrounding areas. We can arrange delivery to other regions based on project requirements.
+                    We strive to respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at 072 970 7875.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">
-                    How does your B-BBEE Level 1 status benefit my company?
+                    What is your delivery area?
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    As a 100% Black Female-owned company with B-BBEE Level 1 status, partnering with us allows your business to claim 135% of the value of your procurement spend with us on your B-BBEE scorecard, helping you meet your own empowerment goals.
+                    We primarily serve the Northern Cape region, with a focus on Kathu and surrounding areas. We can arrange delivery to other locations based on order volume and requirements. Contact us to discuss your specific delivery needs.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">
-                    What are your payment terms?
+                    Do you offer emergency delivery services?
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    Our standard payment terms are 30 days from invoice date. We also offer flexible payment options for larger projects and established clients.
+                    Yes, we offer emergency delivery services for established clients. Additional charges may apply for after-hours or emergency deliveries. Please contact us to discuss your urgent requirements.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">
-                    How quickly can you respond to urgent requests?
+                    How does your B-BBEE Level 1 status benefit my business?
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    We understand that supply chain needs can be urgent. We strive to respond to all inquiries within 24 hours, and we can often accommodate urgent requests with quick turnaround times.
+                    As a 100% Black Female-owned company with B-BBEE Level 1 status, partnering with us allows your business to claim 135% of the value of your procurement spend with us on your B-BBEE scorecard. This can significantly help you meet your own empowerment goals and compliance requirements.
                 </div>
             </div>
         </div>
@@ -603,8 +693,8 @@
     <div class="container">
         <div class="cta-section">
             <h2>Ready to Get Started?</h2>
-            <p>Contact us today to discuss how our services can benefit your business and contribute to your B-BBEE goals.</p>
-            <a href="#contactForm" class="cta-button">Send a Message</a>
+            <p>Contact us today to discuss your food supply needs and discover how we can help your business thrive.</p>
+            <a href="#contactForm" class="btn">Send a Message</a>
         </div>
     </div>
 
@@ -613,41 +703,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-            <div class="logo"><a><img src="assets/motsiLogo.png" height="80" width="80"></a></div>
-
-            <p>Your trusted partner for supply, distribution, and delivery solutions.</p>
-                    <p>B-BBEE Level 1 Contributor</p>
+                    <h3>Motsi General Trading</h3>
+                    <p>Your trusted partner for quality food supply and distribution services in the Northern Cape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579306432481" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="services.html">Services</a></p>
+                    <p><a href="contact.html">Contact</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>4902 Sonnebloem Street, Kathu, 8446</p>
-                    <p>072 970 7875 | 010 617 4499</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Business Details</h3>
-                    <p>Registration: 2019/432757/07</p>
-                    <p>Accounting: Yadah Accounting & Tax Services</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 4902 Sonnebloem Street, Kathu</p>
+                    <p><i class="fas fa-phone"></i> 072 970 7875</p>
+                    <p><i class="fas fa-envelope"></i> info@motsigt.co.za</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved.</p>
+                <p>&copy; 2024 Motsi General Trading (Pty) Ltd. All rights reserved. | Reg: 2019/432757/07</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
 
+        // FAQ functionality
         const faqQuestions = document.querySelectorAll('.faq-question');
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const isOpen = answer.style.display === 'block';
                 
+                // Close all answers
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     ans.style.display = 'none';
                 });
@@ -656,6 +755,7 @@
                     span.textContent = '+';
                 });
                 
+                // Open clicked answer if it was closed
                 if (!isOpen) {
                     answer.style.display = 'block';
                     question.querySelector('span').textContent = '-';
@@ -663,6 +763,7 @@
             });
         });
 
+        // Initialize FAQ to have first question open
         document.addEventListener('DOMContentLoaded', function() {
             const firstAnswer = document.querySelector('.faq-answer');
             const firstSpan = document.querySelector('.faq-question span');
